@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20231120213917_create")]
+    [Migration("20231120235348_create")]
     partial class create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,19 +39,19 @@ namespace API.Migrations
                         new
                         {
                             CategoriaId = 1,
-                            CriadoEm = new DateTime(2023, 11, 21, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1607),
+                            CriadoEm = new DateTime(2023, 11, 21, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(658),
                             Nome = "Trabalho"
                         },
                         new
                         {
                             CategoriaId = 2,
-                            CriadoEm = new DateTime(2023, 11, 22, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1614),
+                            CriadoEm = new DateTime(2023, 11, 22, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(662),
                             Nome = "Estudos"
                         },
                         new
                         {
                             CategoriaId = 3,
-                            CriadoEm = new DateTime(2023, 11, 23, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1615),
+                            CriadoEm = new DateTime(2023, 11, 23, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(663),
                             Nome = "Lazer"
                         });
                 });
@@ -71,6 +71,9 @@ namespace API.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("EstadoDaTarefa")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Titulo")
                         .HasColumnType("TEXT");
 
@@ -85,24 +88,27 @@ namespace API.Migrations
                         {
                             TarefaId = 1,
                             CategoriaId = 1,
-                            CriadoEm = new DateTime(2023, 11, 27, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1678),
+                            CriadoEm = new DateTime(2023, 11, 27, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(722),
                             Descricao = "Terminar relatório para reunião",
+                            EstadoDaTarefa = "não iniciada",
                             Titulo = "Concluir relatório"
                         },
                         new
                         {
                             TarefaId = 2,
                             CategoriaId = 2,
-                            CriadoEm = new DateTime(2023, 11, 23, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1679),
+                            CriadoEm = new DateTime(2023, 11, 23, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(724),
                             Descricao = "Preparar-se para a aula de Angular",
+                            EstadoDaTarefa = "não iniciada",
                             Titulo = "Estudar Angular"
                         },
                         new
                         {
                             TarefaId = 3,
                             CategoriaId = 3,
-                            CriadoEm = new DateTime(2023, 12, 4, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1680),
+                            CriadoEm = new DateTime(2023, 12, 4, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(725),
                             Descricao = "Dar um passeio relaxante no parque",
+                            EstadoDaTarefa = "não iniciada",
                             Titulo = "Passeio no parque"
                         });
                 });

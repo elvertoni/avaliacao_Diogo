@@ -32,7 +32,8 @@ namespace API.Migrations
                     Titulo = table.Column<string>(type: "TEXT", nullable: true),
                     Descricao = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CategoriaId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CategoriaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    EstadoDaTarefa = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,32 +49,32 @@ namespace API.Migrations
             migrationBuilder.InsertData(
                 table: "Categorias",
                 columns: new[] { "CategoriaId", "CriadoEm", "Nome" },
-                values: new object[] { 1, new DateTime(2023, 11, 21, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1607), "Trabalho" });
+                values: new object[] { 1, new DateTime(2023, 11, 21, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(658), "Trabalho" });
 
             migrationBuilder.InsertData(
                 table: "Categorias",
                 columns: new[] { "CategoriaId", "CriadoEm", "Nome" },
-                values: new object[] { 2, new DateTime(2023, 11, 22, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1614), "Estudos" });
+                values: new object[] { 2, new DateTime(2023, 11, 22, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(662), "Estudos" });
 
             migrationBuilder.InsertData(
                 table: "Categorias",
                 columns: new[] { "CategoriaId", "CriadoEm", "Nome" },
-                values: new object[] { 3, new DateTime(2023, 11, 23, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1615), "Lazer" });
+                values: new object[] { 3, new DateTime(2023, 11, 23, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(663), "Lazer" });
 
             migrationBuilder.InsertData(
                 table: "Tarefas",
-                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "Titulo" },
-                values: new object[] { 1, 1, new DateTime(2023, 11, 27, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1678), "Terminar relatório para reunião", "Concluir relatório" });
+                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "EstadoDaTarefa", "Titulo" },
+                values: new object[] { 1, 1, new DateTime(2023, 11, 27, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(722), "Terminar relatório para reunião", "não iniciada", "Concluir relatório" });
 
             migrationBuilder.InsertData(
                 table: "Tarefas",
-                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "Titulo" },
-                values: new object[] { 2, 2, new DateTime(2023, 11, 23, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1679), "Preparar-se para a aula de Angular", "Estudar Angular" });
+                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "EstadoDaTarefa", "Titulo" },
+                values: new object[] { 2, 2, new DateTime(2023, 11, 23, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(724), "Preparar-se para a aula de Angular", "não iniciada", "Estudar Angular" });
 
             migrationBuilder.InsertData(
                 table: "Tarefas",
-                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "Titulo" },
-                values: new object[] { 3, 3, new DateTime(2023, 12, 4, 18, 39, 17, 556, DateTimeKind.Local).AddTicks(1680), "Dar um passeio relaxante no parque", "Passeio no parque" });
+                columns: new[] { "TarefaId", "CategoriaId", "CriadoEm", "Descricao", "EstadoDaTarefa", "Titulo" },
+                values: new object[] { 3, 3, new DateTime(2023, 12, 4, 20, 53, 48, 365, DateTimeKind.Local).AddTicks(725), "Dar um passeio relaxante no parque", "não iniciada", "Passeio no parque" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tarefas_CategoriaId",

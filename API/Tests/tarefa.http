@@ -10,9 +10,10 @@ Content-Type: application/json
 {
   "Titulo": "Compras no Supermercado",
   "Descricao": "1. Fazer lista de compras: pão, leite, ovos, frutas, vegetais",
-  "CategoriaId": 4
+  "CategoriaId": 4,
+  "EstadoDaTarefa": "não iniciada"
 }
 
 ### Editar Tarefa ###
-PATCH {{base_url}}/alterar
+PATCH {{base_url}}/alterar/5
 

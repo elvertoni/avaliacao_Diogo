@@ -55,30 +55,32 @@ public class TarefaController : ControllerBase
 
     [HttpPatch]
     [Route("alterar/{id}")]
-    public IActionResult Alterar([FromRoute] int id,
-        [FromBody] Tarefa tarefa)
+    public IActionResult Alterar([FromRoute] int id, [FromBody] Tarefa tarefa)
     {
         try
         {
-            //Expressões lambda
             Tarefa? tarefaCadastrada =
-                _context.Tarefas.FirstOrDefault(x => x.TarefaId == id);
+            _context.Tarefas.FirstOrDefault(x => x.TarefaId == id);
 
             if (tarefaCadastrada != null)
             {
 
-                Categoria? categoria =
-                    _context.Categorias.Find(tarefa.CategoriaId);
-                if (categoria == null)
+                if (tarefaCadastrada.EstadoDaTarefa == "não iniciada")
                 {
-                    return NotFound();
+                    tarefaCadastrada.EstadoDaTarefa = "em andamento";
                 }
-                tarefaCadastrada.Categoria = categoria;
-                tarefaCadastrada.Titulo = tarefa.Titulo;
-                tarefaCadastrada.Descricao = tarefa.Descricao;
-                _context.Tarefas.Update(tarefaCadastrada);
+                else if (tarefaCadastrada.EstadoDaTarefa == "em andamento")
+                {
+                    tarefaCadastrada.EstadoDaTarefa = "concluída";
+                }
+                else
+                {
+                    return BadRequest("erro");
+                }
+
                 _context.SaveChanges();
-                return Ok();
+
+                return Ok(tarefaCadastrada);
             }
             return NotFound();
         }
@@ -87,4 +89,5 @@ public class TarefaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
 }

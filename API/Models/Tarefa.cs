@@ -8,4 +8,5 @@ public class Tarefa
     public DateTime CriadoEm { get; set; } = DateTime.Now;
     public Categoria? Categoria { get; set; }
     public int CategoriaId { get; set; }
+    public string? EstadoDaTarefa { get; set; }
 }
